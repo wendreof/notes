@@ -1,0 +1,15 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":107829,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"/home/wlf/development/flutter_note_app/test/sqflite_test.dart"},"type":"suite","time":1}
+{"test":{"id":1,"name":"loading /home/wlf/development/flutter_note_app/test/sqflite_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"count":1,"time":25,"type":"allSuites"}
+
+[{"event":"test.startedProcess","params":{"observatoryUri":null}}]
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":5458}
+{"group":{"id":2,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":1,"line":null,"column":null,"url":null},"type":"group","time":5470}
+{"test":{"id":3,"name":"(setUpAll)","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":7,"column":3,"url":"file:///home/wlf/development/flutter_note_app/test/sqflite_test.dart"},"type":"testStart","time":5472}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":5539}
+{"test":{"id":4,"name":"Simple test","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":13,"column":3,"url":"file:///home/wlf/development/flutter_note_app/test/sqflite_test.dart"},"type":"testStart","time":5541}
+{"testID":4,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6106}
+{"test":{"id":5,"name":"(tearDownAll)","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":6107}
+{"testID":5,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":6114}
+{"success":true,"type":"done","time":6180}
