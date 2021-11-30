@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_app/core/controllers/note_controller.dart';
-import 'package:flutter_note_app/core/models/note_model.dart';
-import 'package:flutter_note_app/ui/pages/add_note_page.dart';
-import 'package:flutter_note_app/ui/styles/colors.dart';
-import 'package:flutter_note_app/ui/styles/text_styles.dart';
-import 'package:flutter_note_app/ui/widgets/icon_button.dart';
+import 'package:w_notes/core/controllers/note_controller.dart';
+import 'package:w_notes/core/models/note_model.dart';
+import 'package:w_notes/ui/pages/add_note_page.dart';
+import 'package:w_notes/ui/styles/colors.dart';
+import 'package:w_notes/ui/styles/text_styles.dart';
+import 'package:w_notes/ui/widgets/icon_button.dart';
 import 'package:get/get.dart';
 
 class NoteDetailPage extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter_note_app/core/models/note_model.dart';
+import 'package:w_notes/core/models/note_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBHelper {

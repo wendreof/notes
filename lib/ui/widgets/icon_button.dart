@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_app/ui/styles/text_styles.dart';
+import 'package:w_notes/ui/styles/text_styles.dart';
 
 class MyIconButton extends StatelessWidget {
   final IconData icon;

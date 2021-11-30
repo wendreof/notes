@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_app/core/db/db_helper.dart';
-import 'package:flutter_note_app/core/models/note_model.dart';
+import 'package:w_notes/core/db/db_helper.dart';
+import 'package:w_notes/core/models/note_model.dart';
 import 'package:get/get.dart';
 
 class NoteController extends GetxController {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_note_app/core/db/db_helper.dart';
-import 'package:flutter_note_app/ui/pages/home_page.dart';
+import 'package:w_notes/core/db/db_helper.dart';
+import 'package:w_notes/ui/pages/home_page.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return GetMaterialApp(
-      title: "Flutter Note App",
+      title: 'W Notes',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

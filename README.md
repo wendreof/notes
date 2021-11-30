@@ -6,7 +6,7 @@ Flutter Simple & Lightweight Note App
 - GetX State Management
 - Staggered GridView
 
-![flutter_note_app](https://user-images.githubusercontent.com/48145486/114013183-b2ec5280-9880-11eb-82e4-6069f03c1687.png)
+![w_notes](https://user-images.githubusercontent.com/48145486/114013183-b2ec5280-9880-11eb-82e4-6069f03c1687.png)
 
 ![Screenshot_1617877938](https://user-images.githubusercontent.com/48145486/114013113-9e0fbf00-9880-11eb-8cae-10a21b9f54cf.png)
 

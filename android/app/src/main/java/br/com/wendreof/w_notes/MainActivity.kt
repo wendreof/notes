@@ -1,4 +1,4 @@
-package com.example.flutter_note_app
+package br.com.wendreof.w_notes
 
 import io.flutter.embedding.android.FlutterActivity
 

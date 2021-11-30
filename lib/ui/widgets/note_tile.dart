@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_app/core/models/note_model.dart';
-import 'package:flutter_note_app/ui/pages/note_detailed_page.dart';
-import 'package:flutter_note_app/ui/styles/colors.dart';
-import 'package:flutter_note_app/ui/styles/text_styles.dart';
+import 'package:w_notes/core/models/note_model.dart';
+import 'package:w_notes/ui/pages/note_detailed_page.dart';
+import 'package:w_notes/ui/styles/colors.dart';
+import 'package:w_notes/ui/styles/text_styles.dart';
 import 'package:get/get.dart';
 
 enum TileType {
