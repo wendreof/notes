@@ -15,7 +15,7 @@ env:
 
 jobs:
   flutter_test:
-    name: Analyze & format & test
+    name: Analyze & format & testing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -34,12 +34,12 @@ jobs:
           flutter format --dry-run --set-exit-if-changed test/
           flutter test --coverage
           flutter test --machine > test-results.json
-            - uses: dorny/test-reporter@v1.4.2
+      - uses: dorny/test-reporter@v1.4.2
         with:
           name: test-results
           path: test-results.json
           reporter: flutter-json
-        - uses: codecov/codecov-action@v2
-          with:
-            token: ${{ secrets.CODECOV_TOKEN }}
-            files: ./coverage/lcov.info
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
