@@ -1,0 +1,66 @@
+name: Updating_Code_Version
+
+# This action will be triggered on every new tag
+# For this example I'm using a tag named v1.0.1
+on:
+  push:
+    tags:
+      - "*"
+
+env:
+  JAVA_VERSION: "12.x"
+  #change it to your project version
+  FLUTTER_VERSION: "2.2.3"
+  #change it to your project channel
+  FLUTTER_CHANNEL: "stable"
+
+jobs:
+  update_code_version:
+    name: Updating the code version and commiting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Mandatory to use the extract version from tag action
+          fetch-depth: 0
+      - name: Extract version from tag
+        # With this, we can extract the version of the new tag
+        #  and use it with Cider
+        uses: damienaicheh/extract-version-from-tag-action@v1.0.0
+      - uses: actions/setup-java@v1
+        with:
+          java-version: ${{env.JAVA_VERSION}}
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
+
+      # Get dependencies and generating appbundle
+      # Here I'm using appbundle, feel free to change it to APK
+      - run: |
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          pub global activate cider
+          cider release
+          cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}+${{ env.NUMBER_OF_COMMITS }}
+          flutter pub get
+          flutter build appbundle
+
+      # Here we have already updated the version on pubspec.yaml
+      # But, tha changes are not commited to version control
+      # Now, let's do it!
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          branch: master
+          message: "Update version on pubspec.yaml & update change log"
+          push: origin master --force
+
+      # Make appbundle downloadable
+      # With that we can get the appbundle and submit on Google Play Store
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: appbundle_release
+          path: build/app/outputs/bundle/release
