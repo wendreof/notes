@@ -1,13 +1,15 @@
-pre-commit:
+commit-msg:
   commands:
-    pretty:
-      glob: "*.dart"
-      run: flutter format {staged_files} && git add {staged_files}
-
-# commit-msg:
+    validate:
+      run: flutter pub run ./git_hooks/commitMessage.dart
+      
+# pre-commit:
 #   commands:
-#     validate:
-#       run: flutter pub run ./git_hooks/commitMessage.dart
+#     pretty:
+#       glob: "*.dart"
+#       run: flutter format {staged_files} && git add {staged_files}
+
+
 
 # pre-push:
 #   parallel: true
