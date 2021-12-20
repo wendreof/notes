@@ -50,7 +50,7 @@ android {
         release {
             if (keystorePropertiesFile.exists()) {
                 //From decoded key
-                storeFile = file('key.jks')
+                storeFile = file(keystoreProperties['storeFile'])
                 //From key.properties
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
