@@ -1,0 +1,2 @@
+- Ajustes de performance;
+- Melhorias internas.
