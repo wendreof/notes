@@ -5,29 +5,12 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000739099">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000755488">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: set -e" time="0.002541681">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="2: perl -i -pe 's/^(version: +d+.d+.d++)(d+)$/$1.($2+1)/e' ../../pubspec.yaml" time="0.007083487">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: version=`grep 'version: ' ../../pubspec.yaml | sed 's/version: //'`" time="0.005629108">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: git commit -m  'docs: Bump version to $version' ../../pubspec.yaml" time="0.007797371">
-        
-          <failure message="/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/fast_file.rb:222:in `sh'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/fast_file.rb:216:in `sh'&#10;Fastfile:44:in `block (2 levels) in parsing_binding'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/commands_generator.rb:109:in `block (2 levels) in run'&#10;/var/lib/gems/2.7.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'&#10;/var/lib/gems/2.7.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'&#10;/var/lib/gems/2.7.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:117:in `run!'&#10;/var/lib/gems/2.7.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/commands_generator.rb:353:in `run'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/fastlane/lib/fastlane/cli_tools_distributor.rb:122:in `take_off'&#10;/var/lib/gems/2.7.0/gems/fastlane-2.199.0/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:23:in `load'&#10;/usr/local/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;Exit status of command 'git commit -m  'docs: Bump version to $version' ../../pubspec.yaml' was 128 instead of 0.&#10;error: insufficient permission for adding an object to repository database .git/objects&#10;error: pubspec.yaml: failed to insert into database&#10;error: unable to index file 'pubspec.yaml'&#10;fatal: updating files failed&#10;" />
+      <testcase classname="fastlane.lanes" name="1: flutter build appbundle --release" time="6.188729923">
         
       </testcase>
     

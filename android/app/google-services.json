@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "411568180339",
+    "project_id": "w-notes-20b1d",
+    "storage_bucket": "w-notes-20b1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411568180339:android:344b022c72a84f9337ae06",
+        "android_client_info": {
+          "package_name": "br.com.wendreof.w_notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411568180339-f2gvivup8pf90jn8qd0v9gj4hrs9odtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf4hQbSxnSC7eFg4rR3bSxWhmpw13HQzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411568180339-f2gvivup8pf90jn8qd0v9gj4hrs9odtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

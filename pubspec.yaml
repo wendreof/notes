@@ -1,7 +1,8 @@
 name: w_notes
 description: Flutter Note App
 publish_to: 'none' 
-version: 1.0.4+31
+version: 1.0.5+32
+
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
