@@ -19,19 +19,9 @@ platform :android do
 
   desc "Deploy nova versão para Google Play Store"
   lane :deploy do
-
-    sh("set -e")
-
-    # Find and increment the version number.
-    sh("perl -i -pe 's/^(version:\s+\d+\.\d+\.\d+\+)(\d+)$/$1.($2+1)/e' ../../pubspec.yaml")
-      
-    # Commit and tag this change.
-    sh("version=`grep 'version: ' ../../pubspec.yaml | sed 's/version: //'`")
-    sh("git commit -m  'docs: Bump version to $version' ../../pubspec.yaml")
-    sh("git tag $version")
     
-    sh("flutter clean")
-    sh("flutter pub get")
+    # sh("flutter clean")
+    # sh("flutter pub get")
     sh("flutter build appbundle --release")
     upload_to_play_store(
       aab: "../build/app/outputs/bundle/release/app-release.aab",

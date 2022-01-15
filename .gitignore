@@ -62,3 +62,4 @@ service_account.json
 
 # scan temporary files
 **/fastlane/test_output
+android/fastlane/report.xml
