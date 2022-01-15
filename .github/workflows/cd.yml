@@ -42,14 +42,7 @@ jobs:
           echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
 
-      # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
-
-      # Creating service_account.json
-      - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
-        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-      # Get dependencies and generating appbundle
+          # Get dependencies and generating appbundle
       # Here I'm using appbundle, feel free to change it to APK
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -74,6 +67,28 @@ jobs:
           # Change it to your own branch
           push: origin main --force
 
+      # Decoding base64 key into a file
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
+
+      # Creating service_account.json
+      - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
+        run:
+          echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+          # Upload file to Play Store
+      - name: Upload play store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJson: service_account.json
+          packageName: br.com.wendreof.w_notes
+          releaseFiles: build/app/outputs/bundle/release/*.aab
+          track: production
+          status: completed
+          inAppUpdatePriority: 2
+          releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
+          whatsNewDirectory: distribution/whatsnew
+          mappingFile: build/app/outputs/mapping/release/mapping.txt
+
       # Make appbundle downloadable
       # With that we can get the appbundle and submit on Google Play Store
       - name: Upload artifact
@@ -81,17 +96,3 @@ jobs:
         with:
           name: appbundle_release
           path: build/app/outputs/bundle/release
-
-      # Upload file to Play Store
-      - name: Upload play store
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJson: service_account.json
-          packageName: br.com.wendreof.w_notes
-          releaseFiles: build/app/outputs/bundle/release/*.aab
-          track: internal
-          status: completed
-          inAppUpdatePriority: 2
-          releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
-          whatsNewDirectory: distribution/whatsnew
-          mappingFile: build/app/outputs/mapping/release/mapping.txt
