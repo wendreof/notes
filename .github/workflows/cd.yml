@@ -36,7 +36,6 @@ jobs:
       # Creating the key.properties file
       - run: |
           echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" > service_account.json
-          rm -rf "./android/key.properties"
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
@@ -56,7 +55,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: appbundle_release
+          name: appbundle_debug
           path: build/app/outputs/bundle/debug
 
       # # Creating googleServices.json
