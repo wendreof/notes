@@ -50,14 +50,14 @@ jobs:
           pub global activate cider
           cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}
           flutter pub get
-          flutter build appbundle
+          flutter build appbundle --debug
 
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: appbundle_release
-          path: build/app/outputs/bundle/release
+          path: build/app/outputs/bundle/debug
 
       # # Creating googleServices.json
       # - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
@@ -68,13 +68,13 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: br.com.wendreof.w_notes
-          releaseFiles: build/app/outputs/bundle/release/*.aab
+          releaseFiles: build/app/outputs/bundle/debug/*.aab
           track: production
           status: completed
           inAppUpdatePriority: 2
           releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
           whatsNewDirectory: distribution/whatsnew
-          mappingFile: build/app/outputs/mapping/release/mapping.txt
+          mappingFile: build/app/outputs/mapping/debug/mapping.txt
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7

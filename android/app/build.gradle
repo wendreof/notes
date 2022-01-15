@@ -48,26 +48,27 @@ android {
 
     signingConfigs {
         release {
-            if (keystorePropertiesFile.exists()) {
-                storeFile = file(keystoreProperties['storeFile'])             
-            } else {
-                storeFile = file('key.jks')
-            }
+            //Fastlane
+            storeFile = file(keystoreProperties['storeFile'])             
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            storePassword keystoreProperties['storePassword']          
+            storePassword keystoreProperties['storePassword']       
         }
-        debug {}
+        debug {
+            //GitHub Actions
+            storeFile = file('key.jks')
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storePassword keystoreProperties['storePassword']   
+        }
     }
 
     buildTypes {
         release {
-            //minifyEnabled true
-            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
