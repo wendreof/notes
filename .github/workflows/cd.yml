@@ -45,6 +45,10 @@ jobs:
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
 
+      # Creating service_account.json
+      - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
       # Get dependencies and generating appbundle
       # Here I'm using appbundle, feel free to change it to APK
       - run: |

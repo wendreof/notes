@@ -49,6 +49,7 @@ app.*.map.json
 *.aab
 *.apk
 google-services.json
+service_account.json
 
 # fastlane specific
 **/fastlane/report.xml
