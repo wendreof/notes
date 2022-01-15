@@ -14,6 +14,7 @@ env:
   #change it to your project channel
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"
+  KEY_PATH: "android/app/key.jks"
 
 jobs:
   update_code_version:
@@ -41,10 +42,10 @@ jobs:
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
-          echo storeFile=\${{ android/app/key.jks }} >> ${{env.PROPERTIES_PATH}}
+          echo storeFile=\${{ env.KEY_PATH }} >> ${{env.PROPERTIES_PATH}}
 
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > ${{ env.KEY_PATH }}
 
       # Get dependencies and generating appbundle
       # Here I'm using appbundle, feel free to change it to APK
