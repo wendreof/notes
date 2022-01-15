@@ -48,18 +48,12 @@ android {
 
     signingConfigs {
         release {
-            //Fastlane
             storeFile = file(keystoreProperties['storeFile'])             
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storePassword keystoreProperties['storePassword']       
         }
         debug {
-            //GitHub Actions
-            storeFile = file('key.jks')
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storePassword keystoreProperties['storePassword']   
         }
     }
 
