@@ -35,8 +35,7 @@ jobs:
 
       # Creating the key.properties file
       - run: |
-          echo pwd
-          echo ${{ secrets.SERVICE_ACCOUNT_JSON }} > service_account.json
+          echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" > service_account.json
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
@@ -51,15 +50,6 @@ jobs:
           cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}
           flutter pub get
           flutter build appbundle
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: GitHub Actions
-          author_email: actions@github.com
-          branch: master
-          message: "Update version on pubspec.yaml"
-          push: origin master --force
 
       # Make appbundle downloadable
       - name: Upload artifact
@@ -84,3 +74,12 @@ jobs:
           releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
           whatsNewDirectory: distribution/whatsnew
           mappingFile: build/app/outputs/mapping/release/mapping.txt
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          branch: master
+          message: "Update version on pubspec.yaml"
+          push: origin master --force
