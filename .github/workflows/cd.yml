@@ -79,3 +79,17 @@ jobs:
         with:
           name: appbundle_release
           path: build/app/outputs/bundle/release
+
+      # Upload file to Play Store
+      - name: Upload play store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJson: google-services.json
+          packageName: br.com.wendreof.cnpj
+          releaseFiles: build/app/outputs/bundle/release/*.aab
+          track: internal
+          status: completed
+          inAppUpdatePriority: 2
+          releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
+          whatsNewDirectory: distribution/whatsnew
+          mappingFile: build/app/outputs/mapping/release/mapping.txt
