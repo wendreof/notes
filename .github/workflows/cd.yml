@@ -1,4 +1,4 @@
-name: Updating_Code_Version
+name: CD
 
 # This action will be triggered on every new tag
 # For this example I'm using a tag named v1.0.1
@@ -54,7 +54,7 @@ jobs:
           author_email: actions@github.com
           # Change it to your own branch
           branch: main
-          message: "Update version on pubspec.yaml & update change log"
+          message: "Update version on pubspec.yaml"
           # Change it to your own branch
           push: origin main --force
 
