@@ -47,7 +47,6 @@ jobs:
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
-          cider release
           echo ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}
           cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}
           flutter pub get
@@ -70,16 +69,15 @@ jobs:
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
 
-      # Creating service_account.json
-      - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
-        run:
-          echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+      # Creating google-services.json
+      - name: Create google-services.json FROM secrets.SERVICE_ACCOUNT_JSON
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > google-services.json
 
-          # Upload file to Play Store
+      # Upload file to Play Store
       - name: Upload play store
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJson: service_account.json
+          serviceAccountJson: google-services.json
           packageName: br.com.wendreof.w_notes
           releaseFiles: build/app/outputs/bundle/release/*.aab
           track: production
